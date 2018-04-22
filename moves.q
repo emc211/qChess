@@ -9,12 +9,11 @@ p:{
         if[blk;res];
         inter[;key y] res
         }
-n:{
-        res:x+/:raze (1 1;-1 1;1 -1;-1 -1)*\:/:(1 2;2 1);
+n:{     res:x+/:raze (1 1;-1 1;1 -1;-1 -1)*\:/:(1 2;2 1);
         res@: where null[y res] or y[res] in .Q.A;
         inter[;key y] res 
         }
-r:{res:(asc key[y]where 1=sum flip key[y]=\:x);
+r:{     res:(asc key[y]where 1=sum flip key[y]=\:x);
         res2:lineOfSight[;y] res where res[;0]>x 0;
         res2,:lineOfSight[;y] res where res[;1]>x 1;
         res2,:lineOfSight[;y] reverse res where res[;0]<x 0;
@@ -28,7 +27,7 @@ b:{is:1+til 6;
         res,:lineOfSight[;y] inter[;key y] x+/:neg[is],'is;
         res
         }
-q:{moves.r[x;y],moves.b[x;y]}
+q:{r[x;y],b[x;y]}
 k:{
         res:raze lineOfSight[;y] each enlist each inter[;key y] x+/:1_{x cross x} 0 1 -1;
         res
