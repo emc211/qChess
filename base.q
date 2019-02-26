@@ -1,5 +1,5 @@
 //CHESS FRAME WORK
-//Original version by Eoin Cunning - March 2018
+//Original version  EC - March 2018
 
 //pieces captial black lower white
 allPieces:"RNBKQBNRPPPPPPPPrnbqkbnrpppppppp"

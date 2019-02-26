@@ -1,8 +1,6 @@
-qChess 
-Copyright 2018 Eoin Cunning 
-
-Chess Frame work in kdb
-Original version Eoin Cunning - March 2018
+### qChess 
+##Chess Frame work in kdb
+Original version EC - March 2018
 
 To run execute `q base.q` on the cmd line
 
