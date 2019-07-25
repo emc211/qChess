@@ -9,23 +9,20 @@ lPieces:"rnbqkbnrpppppppp"
 sboard:((raze abs 63 0-\:til 16)!allPieces) 8 cut til 8*8
 //board as a dictionary
 startingBoard:is!sboard ./:is:{x cross x} til 8
-//piece Dict
-pDict:{(X!x),x!X:upper x} lPieces
+//piece map
+pMap:{(X!x),x!X:upper x} lPieces
 //matricise board
 mBoard:{8 cut value x} 
 //switch the board to view as opponenet 
-switch:{key[x]!raze pDict reverse mBoard x}
+switch:{if[0h~type x;:.z.s each x];key[x]!raze pMap reverse mBoard x}
 
 //load moves for each piece
 \l moves.q
-//given board starting co-ord and new co-ord provide outcome board
-applyMove:{p:y z;y:@[y;enlist z;:;" "];@[y;enlist x;:;p]} 
-//TODO should we include apply move inside pMoves have pMoves function run inside .moves.x include there castling 
 //the outcomes possible from a piece's move 
 outcomes:{p:`$y x;
   .moves[p;x;y]
   }
-castling:{[ind;board] :()} //place holder for castling take index and board eval if castle is viable option
+castling:{[ind;board] :()} //place holder for castling take index and board eval if algo that will play as computer
 promotion:{[boards] :boards} //place holder for promotion
 //find all possible boards
 possibleBoards:{raze r where 0<>count each r:outcomes[;x] each where x in lPieces}
@@ -33,9 +30,8 @@ possibleBoards:{raze r where 0<>count each r:outcomes[;x] each where x in lPiece
 isCheck:{not all "K" in/: possibleBoards switch x}
 //can make any move that results in check
 //dont need to check if check can never moved into a checked board
-legalBoards:{r:possibleBoards x;$[isCheck x;r where not isCheck each r;r]}
+legalBoards:{if[0h~type x;:.z.s each x];r:possibleBoards x;$[isCheck x;r where not isCheck each r;r]}
 
-//load script that will define the function algo that will play as computer
 \l algo.q
 
 //Visuals to play on cmd line
