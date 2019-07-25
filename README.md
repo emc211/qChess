@@ -3,7 +3,7 @@
 Original version EC - March 2018
 
 To run execute `q base.q` on the cmd line
-
+```
 "################################"
 "########## qChess ##############"
 "################################"
@@ -40,7 +40,7 @@ q)play["3d";"4d"]
 "1 RNBQKBNR"
 "  abcdefgh"
 q)
-
+```
 
 Algo currently just select at random any legal move
 Intention to change algo function to use either machine learning or board
