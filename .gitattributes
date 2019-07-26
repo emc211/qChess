@@ -1,0 +1,3 @@
+*.txt text=auto
+*.csv text=auto
+*.q   text=auto
